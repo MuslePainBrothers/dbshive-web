@@ -11,7 +11,6 @@ const initialState = {
 const users = (state=initialState, action) => {
   switch(action.type){
     case 'FETCH_MESSAGES':
-      console.log("FETCH_MESSAGES")
       return Object.assign(
         {},
         state,

@@ -17,12 +17,9 @@ function receiveMessages(json){
 export const fetchMessages = () => {
   return dispatch => {
     dispatch(requestMessages())
-    console.log("requestMessages")
-    return axios.get('http://localhost:5000/users').then((res)=>{
-      console.log("axios.get")
       dispatch(receiveMessages(res.data))
     }).catch((res)=>{
-      console.log("err")
+      console.log("err", res)
     })
   }
 }
