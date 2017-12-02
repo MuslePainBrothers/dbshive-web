@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux'
+import { routerReducer } from 'react-router-redux'
 
 
 const initialState = {
@@ -29,7 +30,8 @@ const users = (state=initialState, action) => {
 }
 
 const reducer = combineReducers({
-  users
+  users,
+  routing: routerReducer,
 })
 
 export default reducer
