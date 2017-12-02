@@ -7,12 +7,14 @@ import Top from './components/Top';
 import Admin from './components/Admin';
 import reducer from './reducers';
 import thunkMiddleware from 'redux-thunk'
+import logger from 'redux-logger'
 import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux'
 
 
 const middleware = applyMiddleware(
   routerMiddleware(browserHistory),
+  logger,
   thunkMiddleware
 )
 
