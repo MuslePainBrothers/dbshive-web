@@ -1,5 +1,6 @@
 import React from 'react'
 import UserBox from '../containers/UserBox'
+import ItemBox from '../containers/ItemBox'
 
 
 const Top = () => (
@@ -7,6 +8,7 @@ const Top = () => (
     <div>
       <h1>Top</h1>
       <UserBox />
+      <ItemBox />
     </div>
   </div>
 )

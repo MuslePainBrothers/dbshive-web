@@ -9,6 +9,10 @@ const initialState = {
 
 
 const users = (state=initialState, action) => {
+const items = (state={
+  itemList: [],
+  isFetching: false
+}, action) => {
   switch(action.type){
     case 'FETCH_MESSAGES':
       return Object.assign(
@@ -19,9 +23,13 @@ const users = (state=initialState, action) => {
         }
       )
     case 'FETCH_MESSAGES_SUCCESS':
+    case 'REQUEST_ITEM_LIST':
+      return Object.assign({}, state, {isFetching: true})
+    case 'SUCCESS_ITEM_LIST':
       return Object.assign({}, state, {
         isFetching: false,
         messages: action.messages
+        isFetching: false, itemList: action.itemList
       })
     default:
       return state
@@ -29,7 +37,7 @@ const users = (state=initialState, action) => {
 }
 
 const reducer = combineReducers({
-  users,
+  users, items,
   routing: routerReducer,
 })
 
