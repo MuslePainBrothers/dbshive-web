@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 
-class ItemEdit extends Component {
+class AdminItemTestInsert extends Component {
   render() {
     return (
       <div>
@@ -19,4 +19,4 @@ class ItemEdit extends Component {
   }
 }
 
-export default ItemEdit
+export default AdminItemTestInsert

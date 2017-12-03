@@ -1,7 +1,10 @@
+import React from 'react'
 import {connect} from 'react-redux'
 import * as Actions from '../actions'
 import {bindActionCreators} from 'redux'
-import ItemEdit from '../components/ItemEdit'
+import AdminItemTestInsert from '../components/AdminItemTestInsert'
+import AdminItemList from '../components/AdminItemList'
+
 
 
 const mapStateToProps = state => {
@@ -17,7 +20,17 @@ const mapDispatchToProps = dispatch => {
 
 }
 
-const AdminBox = connect(mapStateToProps, mapDispatchToProps)(ItemEdit)
+
+const AdminBox1 = connect(mapStateToProps, mapDispatchToProps)(AdminItemTestInsert)
+const AdminBox2 = connect(mapStateToProps, mapDispatchToProps)(AdminItemList)
+
+const AdminBox = () => (
+  <div>
+     <AdminBox1 />
+     <AdminBox2 />
+  </div>
+)
 
 export default AdminBox
+
 
