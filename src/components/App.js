@@ -14,8 +14,14 @@ class App extends Component{
     const {children} = this.props
     return (
       <div>
-        <h1>App</h1>
+        <h3>Header</h3>
+        <hr />
+
         {children}
+
+        <hr />
+        <h3>Footer</h3>
+        <hr />
       </div>
     )
   }

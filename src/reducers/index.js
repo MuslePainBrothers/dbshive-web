@@ -2,26 +2,33 @@ import {combineReducers} from 'redux'
 import { routerReducer } from 'react-router-redux'
 
 
-const initialState = {
-  messages: [],
+const users = (state={
+  userList: [],
   isFetching: false
-}
-
-
-const users = (state=initialState, action) => {
+}, action) => {
   switch(action.type){
-    case 'FETCH_MESSAGES':
-      return Object.assign(
-        {},
-        state,
-        {
-          isFetching: true
-        }
-      )
-    case 'FETCH_MESSAGES_SUCCESS':
+    case 'REQUEST_USER_LIST':
+      return Object.assign({}, state, {isFetching: true})
+    case 'SUCCESS_USER_LIST':
       return Object.assign({}, state, {
         isFetching: false,
-        messages: action.messages
+        userList: action.userList
+      })
+    default:
+      return state
+  }
+}
+
+const items = (state={
+  itemList: [],
+  isFetching: false
+}, action) => {
+  switch(action.type){
+    case 'REQUEST_ITEM_LIST':
+      return Object.assign({}, state, {isFetching: true})
+    case 'SUCCESS_ITEM_LIST':
+      return Object.assign({}, state, {
+        isFetching: false, itemList: action.itemList
       })
     default:
       return state
@@ -29,7 +36,7 @@ const users = (state=initialState, action) => {
 }
 
 const reducer = combineReducers({
-  users,
+  users, items,
   routing: routerReducer,
 })
 
