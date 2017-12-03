@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 
-class ItemList extends Component{
+class AdminItemList extends Component {
   static propTypes = {
     actions: PropTypes.object,
   }
@@ -33,4 +33,4 @@ class ItemList extends Component{
   }
 }
 
-export default ItemList
+export default AdminItemList
