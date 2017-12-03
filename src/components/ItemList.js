@@ -2,26 +2,26 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 
-class UserList extends Component{
+class ItemList extends Component{
   static propTypes = {
     actions: PropTypes.object,
   }
 
   componentDidMount(){
     const {actions} = this.props
-    actions.fetchUserList()
+    actions.fetchItemList()
   }
 
   render() {
     return (
       <div>
-        <h2>UserList</h2>
-        {this.props.users.userList.map(user => (
-          <div key={user.id}>{user.id}: {user.name}</div>
+        <h2>ItemList</h2>
+        {this.props.items.itemList.map(item => (
+          <div key={item.id}>{item.id}: {item.name}, {item.description}</div>
         ))}
       </div>
     )
   }
 }
 
-export default UserList
+export default ItemList

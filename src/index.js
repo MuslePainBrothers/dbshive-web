@@ -3,17 +3,37 @@ import {render} from 'react-dom'
 import {Provider} from 'react-redux'
 import {createStore, applyMiddleware} from 'redux'
 import App from './components/App';
-import reducers from './reducers'
+import Top from './components/Top';
+import Admin from './components/Admin';
+import reducer from './reducers';
 import thunkMiddleware from 'redux-thunk'
+import logger from 'redux-logger'
+import {Router, Route, IndexRoute, browserHistory} from 'react-router'
+import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux'
 
-let store = createStore(
-  reducers,
-  applyMiddleware(thunkMiddleware)
+
+const middleware = applyMiddleware(
+  routerMiddleware(browserHistory),
+  logger,
+  thunkMiddleware
 )
+
+const store = createStore(
+  reducer,
+  middleware
+)
+
+const history = syncHistoryWithStore(browserHistory, store)
+
 
 render(
   <Provider store={store}>
-    <App />
+    <Router history={history}>
+      <Route path="/" component={App}>
+        <IndexRoute component={Top} />
+        <Route path="admin" component={Admin} />
+      </Route>
+    </Router>
   </Provider>,
   document.getElementById('root')
 )
