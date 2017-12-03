@@ -1,11 +1,12 @@
 import React from 'react'
+import AdminBox from '../containers/AdminBox'
 
 
 const Admin = () => (
   <div>
     <div>
-      <h1>admin</h1>
-      admin-admin-admin
+      <h1>Admin</h1>
+      <AdminBox />
     </div>
   </div>
 )
