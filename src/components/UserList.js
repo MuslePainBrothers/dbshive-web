@@ -9,14 +9,14 @@ class UserList extends Component{
 
   componentDidMount(){
     const {actions} = this.props
-    actions.fetchMessages()
+    actions.fetchUserList()
   }
 
   render() {
     return (
       <div>
-        <h1>UserList</h1>
-        {this.props.users.messages.map(user => (
+        <h2>UserList</h2>
+        {this.props.users.userList.map(user => (
           <div key={user.id}>{user.id}: {user.name}</div>
         ))}
       </div>
