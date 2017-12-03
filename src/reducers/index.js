@@ -28,7 +28,9 @@ const items = (state={
       return Object.assign({}, state, {isFetching: true})
     case 'SUCCESS_ITEM_LIST':
       return Object.assign({}, state, {
-        isFetching: false, itemList: action.itemList
+        isFetching: false,
+        itemList: action.itemList
+      })
     case 'REQUEST_POST_ITEM':
       return Object.assign({}, state, {isFetching: true})
     case 'SUCCESS_POST_ITEM':
