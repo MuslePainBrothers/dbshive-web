@@ -5,6 +5,7 @@ import {createStore, applyMiddleware} from 'redux'
 import App from './components/App';
 import Top from './components/Top';
 import Admin from './components/Admin';
+import Detail from './components/Detail';
 import reducer from './reducers';
 import thunkMiddleware from 'redux-thunk'
 import logger from 'redux-logger'
@@ -32,6 +33,7 @@ render(
       <Route path="/" component={App}>
         <IndexRoute component={Top} />
         <Route path="admin" component={Admin} />
+        <Route path="/admin/detail/:id" component={Detail} />
       </Route>
     </Router>
   </Provider>,

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router';
 import PropTypes from 'prop-types'
 
 
@@ -18,14 +19,10 @@ class AdminItemList extends Component {
         <h2>ItemList</h2>
         {this.props.items.itemList.map(item => (
           <div key={item.id}>
-            {item.id}: {item.name}, {item.description}
-            <div>
-              developer:
-              {item.developers.map((user_name, i) => (
-                <div key={i}>{user_name},</div>
-              ))}
-            </div>
-            <br />
+            {item.id}:
+            <Link to={'/admin/detail/' + item.id}>
+              {item.name}
+              </Link>
           </div>
         ))}
       </div>
